@@ -112,6 +112,9 @@ void MujocoRendering::scroll_callback(GLFWwindow* window, double xoffset, double
 
 void MujocoRendering::keyboard_callback_impl(GLFWwindow* window, int key, int scancode, int act, int mods)
 {
+  (void) window;  // unused parameter
+  (void) scancode; // unused parameter
+  (void) mods; // unused parameter
   // backspace: reset simulation
   if (act==GLFW_PRESS && key==GLFW_KEY_BACKSPACE) {
     mj_resetData(mj_model_, mj_data_);
@@ -121,6 +124,9 @@ void MujocoRendering::keyboard_callback_impl(GLFWwindow* window, int key, int sc
 
 void MujocoRendering::mouse_button_callback_impl(GLFWwindow* window, int button, int act, int mods)
 {
+  (void) button; // unused parameter
+  (void) act; // unused parameter
+  (void) mods; // unused parameter
   // update button state
   button_left_ = (glfwGetMouseButton(window, GLFW_MOUSE_BUTTON_LEFT)==GLFW_PRESS);
   button_middle_ = (glfwGetMouseButton(window, GLFW_MOUSE_BUTTON_MIDDLE)==GLFW_PRESS);
@@ -172,6 +178,9 @@ void MujocoRendering::mouse_move_callback_impl(GLFWwindow* window, double xpos, 
 
 void MujocoRendering::scroll_callback_impl(GLFWwindow* window, double xoffset, double yoffset)
 {
+  (void) window; // unused parameter
+  (void) xoffset; // unused parameter
+  
   // emulate vertical mouse motion = 5% of window height
   mjv_moveCamera(mj_model_, mjMOUSE_ZOOM, 0, -0.05*yoffset, &mjv_scn_, &mjv_cam_);
 }
